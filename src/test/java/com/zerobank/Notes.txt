@@ -1,0 +1,2 @@
+This is a practice project for an online banking application.
+I have created the testing framework from scratch and working on to test the Zero online banking application.
