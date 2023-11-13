@@ -392,15 +392,6 @@ for given duration
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attributeName, attributeValue);
     }
 
-    /**
-     * Highlighs an element by changing its background and border color
-     * @param element
-     */
-    public static void highlight(WebElement element) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
-        waitFor(1);
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].removeAttribute('style', 'background: yellow; border: 2px solid red;');", element);
-    }
 
     /**
      * Checks or unchecks given checkbox
@@ -420,73 +411,7 @@ for given duration
         }
     }
 
-    /**
-     * attempts to click on provided element until given time runs out
-     *
-     * @param element
-     * @param timeout
-     */
-    public static void clickWithTimeOut(WebElement element, int timeout) {
-        for (int i = 0; i < timeout; i++) {
-            try {
-                element.click();
-                return;
-            } catch (WebDriverException e) {
-                waitFor(1);
-            }
-        }
-    }
 
-    /**
-     * executes the given JavaScript command on given web element
-     *
-     * @param element
-     */
-    public static void executeJScommand(WebElement element, String command) {
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript(command, element);
-
-    }
-
-    /**
-     * executes the given JavaScript command on given web element
-     *
-     * @param command
-     */
-    public static void executeJScommand(String command) {
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript(command);
-
-    }
-
-
-    /**
-     * This method will recover in case of exception after unsuccessful the click,
-     * and will try to click on element again.
-     *
-     * @param by
-     * @param attempts
-     */
-    public static void clickWithWait(By by, int attempts) {
-        int counter = 0;
-        //click on element as many as you specified in attempts parameter
-        while (counter < attempts) {
-            try {
-                //selenium must look for element again
-                clickWithJS(Driver.getDriver().findElement(by));
-                //if click is successful - then break
-                break;
-            } catch (WebDriverException e) {
-                //if click failed
-                //print exception
-                //print attempt
-                e.printStackTrace();
-                ++counter;
-                //wait for 1 second, and try to click again
-                waitFor(1);
-            }
-        }
-    }
 
     /**
      *  checks that an element is present on the DOM of a page. This does not
