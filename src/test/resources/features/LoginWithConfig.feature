@@ -10,5 +10,5 @@
 
     Scenario:
       When user enters username and password
-      And user enters clicks on sign in button
+      And user clicks on sign in button
       Then user should see Settings button on the top right corner

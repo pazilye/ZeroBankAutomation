@@ -5,6 +5,7 @@ import com.zerobank.pages.LoginPage;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,10 +24,7 @@ public class LoginPageStepDef {
     public void user_enters_username_and_password() {
         loginPage.LoginInput.sendKeys(ConfigurationReader.getProperty("UserName"));
     }
-    @When("user enters clicks on sign in button")
-    public void user_enters_clicks_on_sign_in_button() {
-        loginPage.PasswordInput.sendKeys(ConfigurationReader.getProperty("Password"));
-    }
+
 
 
     @Then("user should see Settings button on the top right corner")
@@ -37,8 +35,29 @@ public class LoginPageStepDef {
 
         Assert.assertTrue(homePage.SettingsButton.isDisplayed());
         Driver.closeDriver();
+    }
+
+    @When("user enters invalid credentials {string} and {string}")
+    public void user_enters_invalid_credentials_and(String Username, String Password) {
+        loginPage.LoginInput.sendKeys(Username);
+        loginPage.PasswordInput.sendKeys(Password);
+        BrowserUtils.waitFor(3);
 
 
+    }
+    @Then("user should see error message {string}")
+    public void user_should_see_error_message(String message) {
+        String expectedMsg = loginPage.ErrorMsg.getText();
+        String actualMsg =  message;
+        Assert.assertEquals(expectedMsg,actualMsg);
+        Driver.closeDriver();
+
+
+    }
+
+    @And("user clicks on sign in button")
+    public void userClicksOnSignInButton() {
+        loginPage.SigninButton.click();
 
     }
 }

@@ -20,6 +20,9 @@ public class LoginPage {
     @FindBy(xpath = "//input[@name='submit']")
     public WebElement SigninButton;
 
+    @FindBy(xpath = "//form[@id='login_form']/div[1]")
+    public WebElement ErrorMsg;
+
 
 
 
