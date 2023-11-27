@@ -11,4 +11,5 @@
     Scenario:
       When user enters username and password
       And user clicks on sign in button
+      When user is on the home page
       Then user should see Settings button on the top right corner

@@ -23,15 +23,13 @@ public class LoginPageStepDef {
     @When("user enters username and password")
     public void user_enters_username_and_password() {
         loginPage.LoginInput.sendKeys(ConfigurationReader.getProperty("UserName"));
+        loginPage.PasswordInput.sendKeys(ConfigurationReader.getProperty("Password"));
     }
-
 
 
     @Then("user should see Settings button on the top right corner")
     public void userShouldSeeSettingsButtonOnTheTopRightCorner() {
-        loginPage.SigninButton.click();
-        BrowserUtils.waitFor(3);
-        Driver.getDriver().navigate().back();
+
 
         Assert.assertTrue(homePage.SettingsButton.isDisplayed());
         Driver.closeDriver();
@@ -58,6 +56,17 @@ public class LoginPageStepDef {
     @And("user clicks on sign in button")
     public void userClicksOnSignInButton() {
         loginPage.SigninButton.click();
+        BrowserUtils.waitFor(3);
+        Driver.getDriver().navigate().back();
+
+    }
+
+
+    @When("user is on the home page")
+    public void userIsOnTheHomePage() {
+        homePage.homeButton.isDisplayed();
+
+
 
     }
 }
