@@ -20,8 +20,7 @@ public class AccountSummaryPage {
     @FindBy(xpath = "(//table[@class='table'])[3]/thead/tr/th")
     public WebElement ColumnNames;
 
-    @FindBy(xpath = "//span[@id='account_summary_link']")
-    public WebElement AccountSummaryOption;
+
 
 
 }

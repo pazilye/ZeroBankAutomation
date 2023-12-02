@@ -23,7 +23,7 @@ public class AccountSumStepDef {
     }
     @When("user clicks on the Account Summary")
     public void user_clicks_on_the_account_summary() {
-        accountSummaryPage.AccountSummaryOption.click();
+        homePage.AccountSummaryOption.click();
 
 
 
