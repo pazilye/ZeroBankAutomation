@@ -1,4 +1,4 @@
-
+@accountSummary
 Feature: AccountSummary Feature
   Account summary page should have the title Zero – Account summary. Account
   summary page should have to following account types: Cash Accounts,
@@ -14,7 +14,7 @@ Feature: AccountSummary Feature
     And user clicks on sign in button
     When user is on the home page
 
-  @accountSummary
+
   Scenario: Navigate to the Account summary page
     When user clicks on the Online Banking option
     And  user clicks on the Account Summary
@@ -26,10 +26,7 @@ Feature: AccountSummary Feature
       | Credit Accounts     |
       | Loan Accounts       |
 
-@creditAccounts
-  Scenario: Credit Accounts Table
-    When user is on the Account Summary page
-    Then user should see the following columns under the Credit Accounts
+    And user should see the following columns under the Credit Accounts
 
       | Account     |
       | Credit Card |

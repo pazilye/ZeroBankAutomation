@@ -5,8 +5,10 @@ import com.zerobank.pages.HomePage;
 import com.zerobank.pages.LoginPage;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class AccountSumStepDef {
     HomePage homePage = new HomePage();
@@ -28,19 +30,20 @@ public class AccountSumStepDef {
     }
     @When("user is on the Account Summary page")
     public void user_is_on_the_account_summary_page() {
-        accountSummaryPage.AccountSummaryTab.isDisplayed();
+        Assert.assertTrue(accountSummaryPage.AccountSummaryTab.isDisplayed());
 
     }
     @Then("user should see the following list of Accounts")
     public void user_should_see_the_following_list_of_accounts(io.cucumber.datatable.DataTable listOfAccounts) {
-        accountSummaryPage.ListOfAccounts.isDisplayed();
+
+        Assert.assertTrue(accountSummaryPage.ListOfAccounts.isDisplayed());
 
 
     }
 
-    @Then("user should see the following columns under the Credit Accounts")
+    @And("user should see the following columns under the Credit Accounts")
     public void user_should_see_the_following_columns_under_the_credit_accounts(io.cucumber.datatable.DataTable columns) {
-        accountSummaryPage.ColumnNames.isDisplayed();
+        Assert.assertTrue(accountSummaryPage.ColumnNames.isDisplayed());
         Driver.getDriver().close();
 
 
