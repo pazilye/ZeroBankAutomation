@@ -19,6 +19,11 @@ public class HomePage {
     @FindBy(xpath = "//li[@id='onlineBankingMenu']")
     public WebElement OnlineBankingButton;
 
+    @FindBy(xpath = "//span[@id='account_activity_link']")
+    public WebElement CheckingAccountActivityOption;
+
+
+
 
 
 
