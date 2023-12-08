@@ -5,6 +5,7 @@ import com.zerobank.pages.HomePage;
 import com.zerobank.pages.LoginPage;
 import com.zerobank.pages.PayBillsPage;
 import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,6 +20,7 @@ public class PayBillsStepDef {
 
     @When("user clicks on the Pay Bills option")
     public void user_clicks_on_the_pay_bills_option() {
+        BrowserUtils.waitFor(3);
         homePage.PayBillsOption.click();
 
     }
@@ -28,6 +30,7 @@ public class PayBillsStepDef {
     public void userShouldSeeTheSuccessMessage() {
         payBillsPage.PayBtn.click();
         Assert.assertTrue(payBillsPage.SuccessMsg.isDisplayed());
+        Driver.closeDriver();
     }
 
     @When("user enters chooses {string} from Payee dropdown")
@@ -59,6 +62,33 @@ public class PayBillsStepDef {
     @When("user fill out the Description input and clicks on the Pay button")
     public void userFillOutTheDescriptionInputAndClicksOnThePayButton() {
         payBillsPage.DescriptionInput.sendKeys(faker.lorem().sentence());
+
+    }
+
+    @And("the user enters amount input with {string}")
+    public void theUserEntersAmountInputWith(String amount) {
+        payBillsPage.AmountInput.sendKeys(amount);
+    }
+
+    @When("user fills out the Description input with {string}")
+    public void userFillsOutTheDescriptionInputWith(String description) {
+        payBillsPage.DescriptionInput.sendKeys(description);
+    }
+
+    @And("the user enters a {string} with invalid input")
+    public void theUserEntersAWithInvalidInput(String date) {
+        payBillsPage.DateInput.sendKeys(date);
+    }
+
+    @And("the user clicks on the Pay button")
+    public void theUserClicksOnThePayButton() {
+        payBillsPage.PayBtn.click();
+
+    }
+
+    @Then("the user should not see the success message")
+    public void theUserShouldNotSeeTheSuccessMessage() {
+        Assert.assertFalse(payBillsPage.SuccessMsg.isDisplayed());
 
     }
 }
