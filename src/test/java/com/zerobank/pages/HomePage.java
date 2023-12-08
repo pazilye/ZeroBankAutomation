@@ -26,6 +26,9 @@ public class HomePage {
     @FindBy(xpath = "//span[@id='account_activity_link']")
     public WebElement AccountActivityOption;
 
+    @FindBy(xpath = "//span[@id='pay_bills_link']")
+    public WebElement PayBillsOption;
+
 
 
 
