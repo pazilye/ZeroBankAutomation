@@ -32,6 +32,37 @@ public class PayBillsPage {
     @FindBy(xpath = "//div[@id='alert_content']/span")
     public WebElement SuccessMsg;
 
+    @FindBy(xpath = "//div[@id='tabs']/ul//li[2]/a")
+    public WebElement addNewPayeeTab;
+
+    @FindBy(xpath = "//input[@id='np_new_payee_name']")
+    public WebElement payeeNameInput;
+
+    @FindBy(xpath = "//textarea[@id='np_new_payee_address']")
+    public WebElement payeeAddressInput;
+
+    @FindBy(xpath = "//input[@id='np_new_payee_account']")
+    public WebElement accountInput;
+
+    @FindBy(xpath = "//input[@id='np_new_payee_details']")
+    public WebElement payeeDetailsInput;
+
+    @FindBy(xpath = "(//div[@class='pull-right'])[2]/input")
+    public WebElement addBtn;
+
+    @FindBy(xpath = "//div[@id='alert_content']")
+    public WebElement paymentAddedSuccessMsg;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
