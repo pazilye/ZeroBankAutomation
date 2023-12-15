@@ -1,7 +1,6 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.Driver;
-import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,6 +51,23 @@ public class PayBillsPage {
 
     @FindBy(xpath = "//div[@id='alert_content']")
     public WebElement paymentAddedSuccessMsg;
+
+    @FindBy(xpath = "//div[@id='tabs']/ul/li[3]/a")
+    public WebElement purchaseForeignCurrency;
+
+    @FindBy(xpath = "//select[@id='pc_currency']")
+    public WebElement currencyDropdown;
+
+    @FindBy(xpath = "//input[@id='pc_calculate_costs']")
+    public WebElement calculateCostsBtn;
+
+
+
+
+
+
+
+
 
 
 
