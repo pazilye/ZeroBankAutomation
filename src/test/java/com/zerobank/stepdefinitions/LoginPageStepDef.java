@@ -46,8 +46,7 @@ public class LoginPageStepDef {
     @Then("user should see error message {string}")
     public void user_should_see_error_message(String message) {
         String expectedMsg = loginPage.ErrorMsg.getText();
-        String actualMsg =  message;
-        Assert.assertEquals(expectedMsg,actualMsg);
+        Assert.assertEquals(expectedMsg, message);
         Driver.closeDriver();
 
 
@@ -56,8 +55,7 @@ public class LoginPageStepDef {
     @And("user clicks on sign in button")
     public void userClicksOnSignInButton() {
         loginPage.SigninButton.click();
-        BrowserUtils.waitFor(3);
-        Driver.getDriver().navigate().back();
+        BrowserUtils.waitForVisibility(loginPage.ErrorMsg,2);
 
     }
 
